@@ -1,0 +1,19 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+.playground {
+  width: 35vw;
+  display: flex;
+  flex-flow: wrap;
+}
+
+.playground > div {
+  text-align: center;
+  font-size: 10vw;
+  background-color: pink;
+  border: 1px solid red;
+  width: 10vw;
+  height: 10vw;
+}
