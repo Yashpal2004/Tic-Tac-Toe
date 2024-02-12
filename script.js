@@ -32,15 +32,20 @@ window.onload = function() {
       document.getElementById(boxs[i]).innerHTML = "o"
       player1.push(boxs[i])
       player1Count = check(player1)
+      if (player1Count == 3) {
+        document.getElementById("result").innerHTML = "WINNER IS O !" 
+      }
     } 
     if (turn%2 == 0) {  
       document.getElementById(boxs[i]).innerHTML = "x"
       player2.push(boxs[i])
       player2Count = check(player2)
+      if (player2Count == 3) {
+        document.getElementById("result").innerHTML = "WINNER IS X !" 
+      }
     }
+
     turn = turn + 1
-    console.log(player1Count)
-    console.log(player2Count)
   }
   
 
