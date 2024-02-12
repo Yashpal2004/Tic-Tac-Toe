@@ -22,23 +22,45 @@ window.onload = function() {
     })
   }
 
+  let player1 = []
+  let player2 = []
+  let player1Count = 0
+  let player2Count = 0
+
   function draw(i) {
     if (turn%2 != 0) {
       document.getElementById(boxs[i]).innerHTML = "o"
+      player1.push(boxs[i])
+      player1Count = check(player1)
     } 
     if (turn%2 == 0) {  
-    document.getElementById(boxs[i]).innerHTML = "x"
+      document.getElementById(boxs[i]).innerHTML = "x"
+      player2.push(boxs[i])
+      player2Count = check(player2)
     }
     turn = turn + 1
+    console.log(player1Count)
+    console.log(player2Count)
   }
+  
 
-  const player = {
-    turn1:"turn1",
-    turn2:"turn2",
-    turn3:"turn3",
-    turn4:"turn4",
-    turn5:"turn5"
+  function check(a) {
+    let count = 0
+    if (turn > 4) {
+      for (let i = 0; i < 8; i++) {
+        for (let j = 0; j < a.length; j++) {
+          for (let k = 0; k < 3; k++) {
+            if (a[j] === win[i][k]) {
+              count = count + 1
+            }
+          }
+        }
+        if (count === 3) {
+          return count
+        }
+        count = 0
+      }
+    }
+    return count;
   }
-
-
 }
